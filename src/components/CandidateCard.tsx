@@ -3,13 +3,17 @@ import { Card, Button } from 'react-bootstrap';
 import Candidate  from '../interfaces/Candidate.interface';
 
 interface CandidateCardProps {
-    candidate: Candidate;
+    candidate: Candidate | null;
     onSave: (candidate: Candidate) => void;
     onSkip: () => void;
 
 }
 
 const CandidateCard = ({ candidate, onSave, onSkip }: CandidateCardProps) => {
+    if (!candidate) {
+        return null;
+    }
+
     return (
         <Card>
             <Card.Img variant="top" src={candidate.avatar} />
