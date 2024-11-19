@@ -1,6 +1,7 @@
 import { Card, Container, Row, Col } from 'react-bootstrap';
 import Candidate from '../interfaces/Candidate.interface';
 
+
 interface PotentialCandidatesListProps {
     savedCandidates: Candidate[];
 }
@@ -15,6 +16,7 @@ const PotentialCandidatesList = ({ savedCandidates }: PotentialCandidatesListPro
     }
 
     return (
+        
         <Container>
             <h2>Potential Candidates</h2>
             <Row>
@@ -45,6 +47,7 @@ const PotentialCandidatesList = ({ savedCandidates }: PotentialCandidatesListPro
                 ))}
             </Row>
         </Container>
+        
     );
 };
 
