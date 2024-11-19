@@ -1,54 +1,68 @@
-import { Card, Container, Row, Col } from 'react-bootstrap';
-import Candidate from '../interfaces/Candidate.interface';
+import Candidate from "../interfaces/Candidate.interface";
 
-
-interface PotentialCandidatesListProps {
-    savedCandidates: Candidate[];
+interface CandidateTableProps {
+    candidates: Candidate[];
+    onRemove: (candidate: Candidate) => void;
 }
 
-const PotentialCandidatesList = ({ savedCandidates }: PotentialCandidatesListProps) => {
-    if (savedCandidates.length === 0) {
-        return (
-            <Container>
-                <h3>No potential candidates have been saved yet.</h3>
-            </Container>
-        );
-    }
-
+const List = ({ candidates, onRemove }: CandidateTableProps) => {
     return (
-        
-        <Container>
-            <h2>Potential Candidates</h2>
-            <Row>
-                {savedCandidates.map((candidate) => (
-                    <Col key={candidate.id} xs={12} md={6} lg={4}>
-                        <Card>
-                            <Card.Img variant="top" src={candidate.avatar} />
-                            <Card.Body>
-                                <Card.Title>{candidate.name}</Card.Title>
-                                <Card.Text>
-                                    <strong>Username:</strong> {candidate.username}
-                                </Card.Text>
-                                <Card.Text>
-                                    <strong>Location:</strong> {candidate.location}
-                                </Card.Text>
-                                <Card.Text>
-                                    <strong>Company:</strong> {candidate.company}
-                                </Card.Text>
-                                <Card.Text>
-                                    <strong>Email:</strong> {candidate.email}
-                                </Card.Text>
-                                <a href={candidate.html_url} target="_blank" rel="noopener noreferrer">
-                                    View Profile
-                                </a>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                ))}
-            </Row>
-        </Container>
-        
+        <div style={{ padding: "20px", color: "white", minHeight: "100vh" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", color: "black" }}>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Email</th>
+                        <th>Company</th>
+                        <th>Bio</th>
+                        <th>Reject</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {candidates.map((candidate) => (
+                        <tr key={candidate.email} style={{ backgroundColor: "#151540", textAlign: "center" }}>
+                            <td style={{ padding: "10px", border: "1px solid #333" }}>
+                                <img
+                                    src={candidate.avatar}
+                                    alt={candidate.name}
+                                    style={{ width: "50px", height: "50px", borderRadius: "50%" }}
+                                />
+                            </td>
+                            <td style={{ padding: "10px", border: "1px solid #333" }}>
+                                {candidate.name} ({candidate.username})
+                            </td>
+                            <td style={{ padding: "10px", border: "1px solid #333" }}>{candidate.location}</td>
+                            <td style={{ padding: "10px", border: "1px solid #333" }}>{candidate.email}</td>
+                            <td style={{ padding: "10px", border: "1px solid #333" }}>{candidate.company}</td>
+                            <td style={{ padding: "10px", border: "1px solid #333" }}>{candidate.bio}</td>
+                            <td style={{ padding: "10px", border: "1px solid #333" }}>
+                                <button
+                                    style={{
+                                        backgroundColor: "red",
+                                        color: "white",
+                                        border: "none",
+                                        borderRadius: "50%",
+                                        width: "30px",
+                                        height: "30px",
+                                        fontSize: "16px",
+                                        cursor: "pointer",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                    }}
+                                    onClick={() => onRemove(candidate)}
+                                >
+                                    NO
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     );
 };
 
-export default PotentialCandidatesList;
+export default List;

@@ -6,15 +6,16 @@ const Nav = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      backgroundColor: '#333',
+      backgroundColor: 'black',
       padding: '1rem',
       color: 'white',
       fontSize: '1.2rem',
+      fontWeight: 'bold',
     };
-  // TODO: Add necessary code to display the navigation bar and link between the pages
+  
   return (
     <div style= {navStyle}>
-    <div >Nav</div>
+    <div ></div>
     <Link to='/'>Home</Link>
     <Link to='/SavedCandidates'>Potential Candidates
     </Link>

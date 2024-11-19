@@ -15,7 +15,7 @@ interface CandidateCardProps {
     return (
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "75vh", color: "white" }}>
         <Card style={{
-          backgroundColor: "black",
+          backgroundColor: "white",
           width: "312px",
           borderRadius: "30px",
           overflow: "hidden",
@@ -28,22 +28,23 @@ interface CandidateCardProps {
             style={{ borderRadius: "30px 30px 0 0", height: "310px", objectFit: "cover" }}
           />
           <Card.Body>
-            <Card.Title style={{ fontSize: "1.5rem", fontWeight: "bold", color: "white" }}>
+            <Card.Title style={{ fontSize: "1.5rem", fontWeight: "bold", color: "black" }}>
               {candidate.name} ({candidate.username})
             </Card.Title>
-            <Card.Text style={{ color: "lightgray", fontSize: "1rem" }}>
+            <Card.Text style={{ color: "black", fontSize: "1rem" }}>
               <strong>Location:</strong> {candidate.location}
             </Card.Text>
-            <Card.Text style={{ color: "lightgray", fontSize: "1rem" }}>
+            <Card.Text style={{ color: "black", fontSize: "1rem" }}>
               <strong>Email:</strong> {candidate.email}
             </Card.Text>
-            <Card.Text style={{ color: "lightgray", fontSize: "1rem" }}>
+            <Card.Text style={{ color: "black", fontSize: "1rem" }}>
               <strong>Company:</strong> {candidate.company}
             </Card.Text>
-            <Card.Text style={{ color: "lightgray", fontSize: "1rem" }}>
+            <Card.Text style={{ color: "black", fontSize: "1rem" }}>
               <strong>Bio:</strong> {candidate.bio}
             </Card.Text>
-  <Button
+            <div style={{ display: "flex", justifyContent: "center", gap: "20px", marginTop: "20px" }}>
+            <Button
               style={{
                 backgroundColor: "red",
                 borderRadius: "50%",
@@ -51,12 +52,14 @@ interface CandidateCardProps {
                 width: "40px",
                 margin: "10px",
                 fontWeight: "bold",
-                alignItems: "center"
+                alignItems: "center",
+                display: "flex",
+                justifyContent: "center"
               }}
               variant="danger"
               onClick={onSkip}
             >
-              -
+              NO
             </Button>
             <Button
               style={{
@@ -66,13 +69,17 @@ interface CandidateCardProps {
                 width: "40px",
                 margin: "10px",
                 fontWeight: "bold",
-                alignItems: "center"
+                alignItems: "center",
+                textAlign: "left",
+                display: "flex",
+                justifyContent: "center"
               }}
               variant="success"
               onClick={() => onSave(candidate)}
             >
-              +
+              YES
             </Button>
+            </div>
           </Card.Body>
         </Card>
       </div>

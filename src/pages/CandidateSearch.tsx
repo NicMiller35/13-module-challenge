@@ -88,7 +88,7 @@ const handleSave = () => {
 
   return (
     <div>
-      <h2 style={{fontSize:"60px", display: "flex", justifyContent: "center", margin: "0px"}}>Candidate Search</h2>
+      <h2 style={{fontSize:"60px", display: "flex", justifyContent: "center", margin: "0px",}}>Candidate Search</h2>
       <div>
         <CandidateCard candidate={currentCandidate} onSave={handleSave} onSkip={handleSkip} />
       </div>
