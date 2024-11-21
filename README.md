@@ -10,8 +10,8 @@ This project is a candidate search application. The application searches Github 
 - [Questions](#questions)
 ## Usage
 ![alt text](src/assets/screen.png)
-- <https://github.com/NicMiller35/13-module-challenge>
-- 
+- Github repo: <https://github.com/NicMiller35/13-module-challenge>
+- Link to site: <https://one3-module-challenge.onrender.com/>
 ## Contribution
 Nic Miller
 
